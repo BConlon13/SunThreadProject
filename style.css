@@ -7,8 +7,39 @@ body {
   color: white;
 }
 
+body.home-page {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+.fullscreen-image {
+  position: relative;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.fullscreen-image img {
+  width: 100vw; /* Full viewport width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Fill the width completely */
+  border-radius: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Keep nav visible on top */
+body.home-page nav {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 1em;
+}
+
 nav {
-  background-color: #76bf00;
+  background-color: black;
   padding: 1em;
   text-align: center;
 }
@@ -16,8 +47,10 @@ nav {
 nav a {
   margin: 0 1em;
   text-decoration: none;
-  color: white;
+  color: #D7F55F; /* Lime green */
   font-weight: bold;
+  font-family: "Academy Engraved LET", "Academy Engraved", "Copperplate", "Copperplate Gothic Light", fantasy;
+  font-size: 1.5em; /* Bigger text */
 }
 
 nav a:hover {
@@ -26,14 +59,17 @@ nav a:hover {
 
 header {
   text-align: center;
-  padding: 2em 1em;
+  padding: 1em; /* Reduced from 2em 1em */
   background-color: black;
   box-shadow: 0 4px 10px rgba(255,255,255,0.1);
 }
 
 h1 {
-  font-size: 3em;
-  color: white;
+  font-size: 5.5em; /* Bigger than nav links */
+  color: #D7F55F; /* Same lime green as nav */
+  font-family: "Academy Engraved LET", "Academy Engraved", "Copperplate", "Copperplate Gothic Light", fantasy; /* Same font as nav */
+  font-weight: bold;
+  margin-bottom: 0.5em; /* Add this line to reduce space below title */
 }
 
 main {
@@ -75,7 +111,6 @@ img {
   padding: 2rem;
 }
 
-
 #media {
   text-align: center;
   padding: 2rem;
@@ -99,4 +134,241 @@ img {
 
 .gallery-container img:hover {
   transform: scale(1.05);
+}
+
+/* Image page styles (for About and other image-only pages) */
+body.image-page {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+.scrollable-images {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.scrollable-images img {
+  width: 100vw;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Keep nav visible on image pages */
+body.image-page nav {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 1em;
+}
+
+/* Final Work Page Styles */
+.video-section {
+  margin: 0 0 2rem 0; /* No top margin, keeps bottom margin */
+  text-align: center;
+}
+
+.video-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Full-width text sections that break out of main container */
+.intro-text {
+  width: calc(100vw - 4rem); /* Subtract padding from full width */
+  max-width: none; /* Override any max-width constraints */
+  margin: 1.5rem 0;
+  padding: 0 2rem; /* Padding on sides */
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%); /* Center it properly */
+}
+
+.large-text {
+  font-size: 1.6em; /* Increased from 1.3em */
+  line-height: 1.6;
+  color: #D7F55F;
+  font-weight: 300;
+}
+
+/* Updated Final Gallery for full, uncropped images */
+.final-gallery {
+  margin: 4rem 0;
+}
+
+.gallery-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto; /* This allows the full image height to show */
+  object-fit: contain; /* Shows entire image without cropping */
+  border-radius: 0; /* Sharp, pointy edges instead of rounded */
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.02);
+}
+
+.detailed-info {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.text-block {
+  margin: 2rem 0;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+}
+
+.expandable {
+  cursor: pointer;
+  color: #D7F55F;
+  margin: 1rem 0;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.expandable:hover {
+  color: #ffffff;
+}
+
+.expandable-content {
+  display: none;
+  padding: 1rem 0;
+  line-height: 1.6;
+  color: #cccccc;
+}
+
+.expandable-content p {
+  margin-bottom: 1rem;
+}
+
+/* Final Work page specific styling */
+body:has(.video-section) {
+  background-color: blue;
+  color: white;
+}
+
+/* Make header background blue on Final Work page */
+body:has(.video-section) header {
+  background-color: blue;
+}
+
+/* Make navigation text blue on Final Work page */
+body:has(.video-section) nav a {
+  color: #1E90FF; /* Same blue as background */
+}
+
+/* Make all text white on Final Work page */
+body:has(.video-section) .large-text {
+  color: white; /* Changed from #D7F55F to white */
+}
+
+body:has(.video-section) h1 {
+  color: white; /* Changed from #D7F55F to white */
+}
+
+/* Process page specific styling to match Final Work page */
+body:has(main h2:first-of-type) h1 {
+  font-size: 3.5em; /* Smaller than 5.5em */
+  color: #D7F55F;
+  font-family: "Academy Engraved LET", "Academy Engraved", "Copperplate", "Copperplate Gothic Light", fantasy; /* Same as nav toolbar */
+  font-weight: 300;
+  margin-bottom: 0.5em;
+}
+
+/* Make all text on Process page use the same font as Final Work */
+body:has(main h2:first-of-type) p,
+body:has(main h2:first-of-type) li,
+body:has(main h2:first-of-type) em {
+  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1.3em;
+}
+
+/* Make Process page headings consistent */
+body:has(main h2:first-of-type) h2 {
+  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 3em;
+  color: #D7F55F;
+}
+
+body:has(main h2:first-of-type) h3 {
+  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 2em;
+  color: #D7F55F;
+}
+
+
+.instagram-section {
+  text-align: center;
+  margin: 2rem 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.instagram-button {
+  background-color: #CDA1FF;
+  color: black;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.instagram-button:hover {
+  background-color: #ffffff;
+}
+
+/* Artist page specific styling */
+body.artist-page {
+  background-color: #140040;
+  color: white;
+}
+
+/* Make header background match on Artist page */
+body.artist-page header {
+  background-color: #140040;
+  box-shadow: none; /* Remove the line under the title */
+}
+
+/* Make navigation toolbar purple on Artist page */
+body.artist-page nav {
+  background-color: #CDA1FF;
+}
+
+/* Make navigation text dark purple on Artist page */
+body.artist-page nav a {
+  color: #140040;
+}
+
+/* Change lime green headers to light purple on Artist page */
+body.artist-page h1,
+body.artist-page h2,
+body.artist-page h3 {
+  color: #CDA1FF !important;
 }
