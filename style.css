@@ -72,29 +72,6 @@ h1 {
   margin-bottom: 0.5em; /* Add this line to reduce space below title */
 }
 
-/* Process page specific styling to match Final Work page */
-body:has(main h2:first-of-type) h1 {
-  font-size: 3.5em; /* Smaller than 5.5em */
-  color: #D7F55F;
-  font-family: "Academy Engraved LET", "Academy Engraved", "Copperplate", "Copperplate Gothic Light", fantasy; /* Same as nav toolbar */
-  font-weight: 300;
-  margin-bottom: 0.5em;
-}
-
-/* Add this line right here */
-body:has(main h2:first-of-type) header {
-  box-shadow: none;
-}
-
-/* Make all text on Process page use the same font as Final Work */
-body:has(main h2:first-of-type) p,
-body:has(main h2:first-of-type) li,
-body:has(main h2:first-of-type) em {
-  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: 1.3em;
-}
-
 main {
   max-width: 800px;
   margin: 2em auto;
@@ -291,6 +268,7 @@ body:has(.video-section) {
 /* Make header background blue on Final Work page */
 body:has(.video-section) header {
   background-color: blue;
+  box-shadow: none; /* Remove the line under the title */
 }
 
 /* Make navigation text blue on Final Work page */
@@ -314,6 +292,11 @@ body:has(main h2:first-of-type) h1 {
   font-family: "Academy Engraved LET", "Academy Engraved", "Copperplate", "Copperplate Gothic Light", fantasy; /* Same as nav toolbar */
   font-weight: 300;
   margin-bottom: 0.5em;
+}
+
+/* Remove line under header on Process page */
+body:has(main h2:first-of-type) header {
+  box-shadow: none;
 }
 
 /* Make all text on Process page use the same font as Final Work */
@@ -340,7 +323,34 @@ body:has(main h2:first-of-type) h3 {
   color: #D7F55F;
 }
 
+/* Full-width gallery for Process page */
+body:has(main h2:first-of-type) .gallery-container {
+  display: flex;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 1rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
 
+body:has(main h2:first-of-type) .gallery-container img {
+  flex: 1;
+  width: calc(33.33% - 0.67rem);
+  height: 600px; /* Increased from 500px to 600px */
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Make single image galleries bigger */
+body:has(main h2:first-of-type) .gallery-container:has(img:only-child) img {
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Instagram button section */
 .instagram-section {
   text-align: center;
   margin: 2rem 0;
@@ -351,20 +361,22 @@ body:has(main h2:first-of-type) h3 {
 }
 
 .instagram-button {
-  background-color: #CDA1FF;
-  color: black;
+  background-color: #DA70D6; /* Neon lavender */
+  color: white;
   padding: 15px 30px;
   text-decoration: none;
   border-radius: 8px;
   font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 1.2em;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   display: inline-block;
+  box-shadow: 0 0 20px rgba(218, 112, 214, 0.6); /* Neon glow effect */
 }
 
 .instagram-button:hover {
-  background-color: #ffffff;
+  background-color: #FF69B4; /* Brighter pink on hover */
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.8); /* Stronger glow on hover */
 }
 
 /* Artist page specific styling */
