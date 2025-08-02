@@ -407,3 +407,25 @@ body.artist-page h2,
 body.artist-page h3 {
   color: #CDA1FF !important;
 }
+
+/* Force remove header lines on all pages */
+header {
+  box-shadow: none !important;
+}
+
+/* Specifically target Final Work page */
+body:has(.video-section) header {
+  background-color: blue;
+  box-shadow: none !important;
+}
+
+/* Specifically target Process page */
+body:has(main h2:first-of-type) header {
+  box-shadow: none !important;
+}
+
+/* Specifically target Artist page */
+body.artist-page header {
+  background-color: #140040;
+  box-shadow: none !important;
+}
