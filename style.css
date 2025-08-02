@@ -72,6 +72,29 @@ h1 {
   margin-bottom: 0.5em; /* Add this line to reduce space below title */
 }
 
+/* Process page specific styling to match Final Work page */
+body:has(main h2:first-of-type) h1 {
+  font-size: 3.5em; /* Smaller than 5.5em */
+  color: #D7F55F;
+  font-family: "Academy Engraved LET", "Academy Engraved", "Copperplate", "Copperplate Gothic Light", fantasy; /* Same as nav toolbar */
+  font-weight: 300;
+  margin-bottom: 0.5em;
+}
+
+/* Add this line right here */
+body:has(main h2:first-of-type) header {
+  box-shadow: none;
+}
+
+/* Make all text on Process page use the same font as Final Work */
+body:has(main h2:first-of-type) p,
+body:has(main h2:first-of-type) li,
+body:has(main h2:first-of-type) em {
+  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1.3em;
+}
+
 main {
   max-width: 800px;
   margin: 2em auto;
